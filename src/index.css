@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&family=Noto+Sans+Devanagari:wght@300;400;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(0, 0%, 15%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(0, 0%, 15%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(0, 0%, 15%);
+  --primary: hsl(0, 0%, 0%);
+  --primary-foreground: hsl(0, 0%, 100%);
+  --secondary: hsl(0, 0%, 30%);
+  --secondary-foreground: hsl(0, 0%, 100%);
+  --muted: hsl(0, 0%, 98%);
+  --muted-foreground: hsl(0, 0%, 50%);
+  --accent: hsl(0, 0%, 98%);
+  --accent-foreground: hsl(0, 0%, 15%);
+  --destructive: hsl(0, 0%, 30%);
+  --destructive-foreground: hsl(0, 0%, 100%);
+  --border: hsl(0, 0%, 92%);
+  --input: hsl(0, 0%, 98%);
+  --ring: hsl(0, 0%, 0%);
+  --font-hindi: 'Noto Sans Devanagari', sans-serif;
+  --font-english: 'Source Sans Pro', sans-serif;
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: hsl(0, 0%, 3.9%);
+  --foreground: hsl(0, 0%, 98%);
+  --card: hsl(0, 0%, 3.9%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --popover: hsl(0, 0%, 3.9%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --primary: hsl(0, 0%, 98%);
+  --primary-foreground: hsl(0, 0%, 9%);
+  --secondary: hsl(0, 0%, 14.9%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --muted: hsl(0, 0%, 14.9%);
+  --muted-foreground: hsl(0, 0%, 63.9%);
+  --accent: hsl(0, 0%, 14.9%);
+  --accent-foreground: hsl(0, 0%, 98%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --border: hsl(0, 0%, 14.9%);
+  --input: hsl(0, 0%, 14.9%);
+  --ring: hsl(0, 0%, 83.1%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-english);
+  }
+}
+
+@layer components {
+  .hindi-text {
+    font-family: var(--font-hindi);
+    font-feature-settings: "kern" 1;
+    text-rendering: optimizeLegibility;
+  }
+  
+  .english-text {
+    font-family: var(--font-english);
+  }
+  
+  .lazy-image {
+    transition: filter 0.3s;
+  }
+  
+  .lazy-image.loading {
+    filter: blur(5px);
+  }
+  
+  .lazy-image.loaded {
+    filter: blur(0);
+  }
+  
+  .hover-lift {
+    transition: transform 0.2s ease;
+  }
+  
+  @media (hover: hover) {
+    .hover-lift:hover {
+      transform: translateY(-2px);
+    }
+  }
+}
+
+/* Core Web Vitals optimizations */
+img {
+  content-visibility: auto;
+}
+
+/* Performance optimizations */
+.will-change-transform {
+  will-change: transform;
+}
