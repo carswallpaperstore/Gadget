@@ -1,9 +1,9 @@
-const CACHE_NAME = 'techguru-india-v1';
+const CACHE_NAME = 'gadget-india-v1';
 const urlsToCache = [
   '/',
-  '/static/js/bundle.js',
-  '/static/css/main.css',
-  '/manifest.json'
+  '/index.html',
+  '/manifest.json',
+  '/assets'
 ];
 
 // Install service worker
