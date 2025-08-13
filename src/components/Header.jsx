@@ -22,7 +22,7 @@ export default function Header() {
   return (
     <>
       <header className="sticky top-0 z-40 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/80 shadow-sm">
-        <div className="max-w-7xl mx-auto flex h-16 items-center px-3 md:px-8">
+        <div className="max-w-7xl mx-auto flex h-14 md:h-16 items-center px-2 md:px-8 justify-between">
           {/* Mobile Menu Button */}
           <Button
             variant="ghost"
@@ -35,8 +35,8 @@ export default function Header() {
           </Button>
 
           {/* Logo - BRANDING CENTER */}
-          <Link href="/" className="flex items-center space-x-2 flex-1 md:flex-none">
-            <div className="font-bold text-2xl tracking-tight english-text text-primary">
+          <Link href="/" className="flex items-center space-x-2 flex-1">
+            <div className="font-bold text-xl md:text-2xl tracking-tight english-text text-primary truncate">
               TechGuru India
             </div>
           </Link>
@@ -55,15 +55,15 @@ export default function Header() {
           </nav>
 
           {/* Action Buttons - SEARCH & NOTIFICATIONS */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center ml-2">
             <Button 
               variant="ghost" 
               size="icon"
-              className="rounded-full border border-gray-200 shadow-sm bg-white/90"
+              className="rounded-full border border-gray-200 shadow-sm bg-white/90 w-10 h-10 flex items-center justify-center"
               onClick={() => setShowSearch(true)}
               title="Search blogs"
             >
-              <Search className="h-5 w-5" />
+              <Search className="h-[18px] w-[18px]" />
               <span className="sr-only">Search</span>
             </Button>
           </div>

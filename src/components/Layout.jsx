@@ -1,7 +1,6 @@
 import Header from "./Header";
 import Footer from "./Footer";
 import Sidebar from "./Sidebar";
-import React from "react";
 import SEOHead from "./SEOHead";
 import { useMobile } from "../hooks/use-mobile";
 

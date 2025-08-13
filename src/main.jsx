@@ -3,8 +3,24 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+const root = ReactDOM.createRoot(document.getElementById('root'))
+
+root.render(
   <React.StrictMode>
     <App />
-  </React.StrictMode>,
+  </React.StrictMode>
 )
+
+// Handle HMR
+if (import.meta.hot) {
+  import.meta.hot.accept('./App.jsx', (newModule) => {
+    if (newModule) {
+      const NewApp = newModule.default
+      root.render(
+        <React.StrictMode>
+          <NewApp />
+        </React.StrictMode>
+      )
+    }
+  })
+}

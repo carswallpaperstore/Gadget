@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "wouter";
 import { Clock } from "lucide-react";
 import SocialShare from "./SocialShare";

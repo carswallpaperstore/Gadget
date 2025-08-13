@@ -10,9 +10,6 @@
  * - Hero section can be customized in the hero section below
  */
 
-import React from "react";
-
-// ...existing code...
 import { useState, useEffect } from "react";
 import BlogCard from "../components/BlogCard";
 import SEOHead from "../components/SEOHead";
