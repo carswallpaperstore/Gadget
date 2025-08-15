@@ -15,7 +15,7 @@ export default function Privacy() {
             Privacy Policy
           </h1>
           <p className="text-muted-foreground hindi-text">
-            Last updated: January 2024
+            Last updated: July 2025
           </p>
         </div>
 

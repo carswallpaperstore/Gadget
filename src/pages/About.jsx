@@ -5,22 +5,10 @@ import SEOHead from '../components/SEOHead';
 export default function About() {
   const teamMembers = [
     {
-      name: "राजेश कुमार",
-      role: "Chief Editor & Tech Reviewer",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&q=80",
-      description: "10+ साल का tech journalism experience"
-    },
-    {
-      name: "प्रिया शर्मा", 
-      role: "Mobile & Gadgets Specialist",
-      image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=300&q=80",
-      description: "Smartphone और consumer electronics expert"
-    },
-    {
-      name: "अमित गुप्ता",
-      role: "Laptop & Computing Expert", 
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&q=80",
-      description: "PC building और laptop reviews specialist"
+      name: "Ganesh Chavan",
+      role: "Tech Reviewer",
+      image: "https://example.com/ganesh.jpg", 
+      description: "1+ साल का tech journalism experience"
     }
   ];
 
@@ -116,11 +104,11 @@ export default function About() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {teamMembers.map((member, index) => (
               <div key={index} className="bg-white p-6 rounded-lg shadow-sm border border-border text-center">
-                <img
+                {/* <img
                   src={member.image}
                   alt={member.name}
                   className="w-24 h-24 rounded-full mx-auto mb-4 object-cover"
-                />
+                /> */}
                 <h3 className="text-xl font-semibold mb-2 hindi-text">{member.name}</h3>
                 <p className="text-primary font-medium mb-3 english-text text-sm">{member.role}</p>
                 <p className="text-muted-foreground text-sm hindi-text">{member.description}</p>
