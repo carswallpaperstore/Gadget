@@ -50,8 +50,8 @@ export default function Privacy() {
           </p>
           
           <ul className="hindi-text">
-            <li>Email: privacy@techguru-india.com</li>
-            <li>Phone: +91 12345 67890</li>
+            <li>techguruindia321@gmail.com</li>
+            <li>Phone: +91 8055220689</li>
           </ul>
         </div>
       </div>

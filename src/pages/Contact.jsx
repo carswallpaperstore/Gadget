@@ -146,7 +146,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="font-medium mb-1 hindi-text">Email करें</h3>
-                    <p className="text-muted-foreground english-text">contact@techguru-india.com</p>
+                    <p className="text-muted-foreground english-text">techguruindia321@gmail.com</p>
                   </div>
                 </div>
 
@@ -156,7 +156,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="font-medium mb-1 hindi-text">Phone करें</h3>
-                    <p className="text-muted-foreground english-text">+91 12345 67890</p>
+                    <p className="text-muted-foreground english-text">+91 8055220689</p>
                   </div>
                 </div>
 
@@ -191,7 +191,7 @@ export default function Contact() {
                 <div>
                   <h4 className="font-medium mb-2 hindi-text">Advertisement के लिए कैसे contact करें?</h4>
                   <p className="text-sm text-muted-foreground hindi-text">
-                    Advertisement और partnership के लिए contact@techguru-india.com पर email करें।
+                    Advertisement और partnership के लिए techguruindia321@gmail.com पर email करें।
                   </p>
                 </div>
                 

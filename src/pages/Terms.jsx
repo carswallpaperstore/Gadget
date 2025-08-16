@@ -38,8 +38,8 @@ export default function Terms() {
           </p>
           
           <ul className="hindi-text">
-            <li>Email: legal@techguru-india.com</li>
-            <li>Phone: +91 12345 67890</li>
+            <li>Email: techguruindia321@gmail.com</li>
+            <li>Phone: +91 8055220689</li>
           </ul>
         </div>
       </div>

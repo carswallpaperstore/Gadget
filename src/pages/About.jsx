@@ -123,7 +123,7 @@ export default function About() {
           
           <div className="prose prose-lg max-w-none hindi-text">
             <p className="mb-6 text-muted-foreground leading-relaxed">
-              TechGuru India की शुरुआत 2020 में हुई थी जब हमने देखा कि भारत में 
+              TechGuru India की शुरुआत 2025 में हुई जब हमने देखा कि भारत में 
               quality tech content की कमी है। ज्यादातर websites पर या तो English में 
               content था या फिर वह ज्यादा technical था जो common users समझ नहीं पाते थे।
             </p>
@@ -140,7 +140,7 @@ export default function About() {
             </ul>
             
             <p className="text-muted-foreground leading-relaxed">
-              आज हमारे पास 50 lakh+ monthly readers हैं और हम India की top tech 
+              आज हमारे पास Bohot monthly readers हैं और हम India की top tech 
               websites में से एक हैं। हमारी success की सबसे बड़ी वजह है हमारे 
               readers का trust और उनकी feedback।
             </p>
