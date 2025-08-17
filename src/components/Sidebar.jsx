@@ -114,7 +114,9 @@ export default function Sidebar() {
       <div className="bg-white p-6 rounded-lg shadow-sm border border-border">
         <h3 className="font-semibold mb-3 hindi-text">TechGuru India के बारे में</h3>
         <p className="text-sm text-muted-foreground hindi-text leading-relaxed">
-        भारत की No.1 हिंदी Tech News Website – यहाँ पाएँ सबसे पहले Gadgets, Smartphones, Laptops और Technology Trends की ताज़ा खबरें।
+          हम भारत की सबसे तेज़ और भरोसेमंद tech news website हैं। 
+          Latest gadgets, smartphones, laptops और technology trends की 
+          सटीक जानकारी हिंदी में पाएं।
         </p>
       </div>
     </div>
