@@ -2,71 +2,49 @@ const CACHE_NAME = 'gadget-india-v1';
 const urlsToCache = [
   '/',
   '/index.html',
-  '/manifest.json',
-  '/assets'
+  '/manifest.json'
+  // /assets काढले कारण ते folder आहे, file नाही
 ];
 
-// Install service worker
+// Install
 self.addEventListener('install', event => {
   event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then(cache => {
-        return cache.addAll(urlsToCache);
-      })
+    caches.open(CACHE_NAME).then(cache => cache.addAll(urlsToCache))
   );
 });
 
-// Fetch event - serve cached content when offline
+// Fetch
 self.addEventListener('fetch', event => {
   event.respondWith(
-    caches.match(event.request)
-      .then(response => {
-        // Return cached version or fetch from network
-        return response || fetch(event.request);
-      }
-    )
+    caches.match(event.request).then(response => {
+      return response || fetch(event.request);
+    })
   );
 });
 
-// Push notification event
+// Push
 self.addEventListener('push', event => {
   const options = {
     body: event.data ? event.data.text() : 'नई tech update available है!',
     icon: '/icon-192x192.png',
     badge: '/badge-72x72.png',
     vibrate: [100, 50, 100],
-    data: {
-      dateOfArrival: Date.now(),
-      primaryKey: 1
-    },
+    data: { dateOfArrival: Date.now(), primaryKey: 1 },
     actions: [
-      {
-        action: 'explore',
-        title: 'Read Now',
-        icon: '/images/checkmark.png'
-      },
-      {
-        action: 'close',
-        title: 'Close',
-        icon: '/images/xmark.png'
-      }
+      { action: 'explore', title: 'Read Now' },
+      { action: 'close', title: 'Close' }
     ]
   };
-
   event.waitUntil(
     self.registration.showNotification('TechGuru India', options)
   );
 });
 
-// Notification click event
+// Notification click
 self.addEventListener('notificationclick', event => {
   event.notification.close();
-
   if (event.action === 'explore') {
-    // Open the app when notification is clicked
-    event.waitUntil(
-      clients.openWindow('/')
-    );
+    event.waitUntil(clients.openWindow('/'));
   }
 });
 
@@ -78,11 +56,9 @@ self.addEventListener('sync', event => {
 });
 
 function doBackgroundSync() {
-  // Handle background sync - refresh content when connection is restored
   return fetch('/api/posts')
-    .then(response => response.json())
+    .then(res => res.json())
     .then(data => {
-      // Update cache with fresh data
       return caches.open(CACHE_NAME).then(cache => {
         cache.put('/api/posts', new Response(JSON.stringify(data)));
       });
