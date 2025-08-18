@@ -3,7 +3,6 @@ import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "./components/ui/toaster";
 import { TooltipProvider } from "./components/ui/tooltip";
-import { useEffect } from "react";
 import Layout from "./components/Layout";
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -31,29 +30,6 @@ function Router() {
 }
 
 function App() {
-  useEffect(() => {
-    // ✅ Service Worker registration
-    if ("serviceWorker" in navigator) {
-      window.addEventListener("load", () => {
-        navigator.serviceWorker
-          .register("/sw.js")
-          .then((registration) => {
-            console.log("Service Worker registered: ", registration);
-
-            // ✅ Push notification permission
-            if ("Notification" in window && Notification.permission === "default") {
-              Notification.requestPermission().then((permission) => {
-                console.log("Notification permission:", permission);
-              });
-            }
-          })
-          .catch((error) => {
-            console.error("Service Worker registration failed:", error);
-          });
-      });
-    }
-  }, []);
-
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
