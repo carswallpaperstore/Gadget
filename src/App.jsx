@@ -23,6 +23,7 @@ function Router() {
         <Route path="/privacy" component={Privacy} />
         <Route path="/terms" component={Terms} />
         <Route path="/blog/:id" component={BlogPost} />
+        {/* always keep NotFound last */}
         <Route component={NotFound} />
       </Switch>
     </Layout>
@@ -31,22 +32,25 @@ function Router() {
 
 function App() {
   useEffect(() => {
-    // Register service worker for push notifications
-    if ('serviceWorker' in navigator && 'PushManager' in window) {
-      navigator.serviceWorker.register('/sw.js')
-        .then(registration => {
-          console.log('Service Worker registered: ', registration);
-          
-          // Request notification permission
-          if (Notification.permission === 'default') {
-            Notification.requestPermission().then(permission => {
-              console.log('Notification permission:', permission);
-            });
-          }
-        })
-        .catch(registrationError => {
-          console.log('Service Worker registration failed: ', registrationError);
-        });
+    // ✅ Service Worker registration
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker
+          .register("/sw.js")
+          .then((registration) => {
+            console.log("Service Worker registered: ", registration);
+
+            // ✅ Push notification permission
+            if ("Notification" in window && Notification.permission === "default") {
+              Notification.requestPermission().then((permission) => {
+                console.log("Notification permission:", permission);
+              });
+            }
+          })
+          .catch((error) => {
+            console.error("Service Worker registration failed:", error);
+          });
+      });
     }
   }, []);
 

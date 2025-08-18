@@ -3,5 +3,5 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: './', // 👉 khup important, CDN paths sathi
+  base: '/', // production मध्ये नेहमी root वरून serve होईल
 })
