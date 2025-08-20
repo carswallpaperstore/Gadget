@@ -12,13 +12,12 @@ import { Button } from '../components/ui/button';
 import { Link } from 'wouter';
 import SocialShare from '../components/SocialShare';
 import SEOHead from '../components/SEOHead';
-import { getPostById } from '../data/blogPosts';
+import { getPostBySlug } from '../data/blogPosts';
 
 export default function BlogPost() {
-  const [, params] = useRoute('/blog/:id');
-  
-  // GET SINGLE POST - Fetch post data by ID from URL
-  const post = getPostById(params?.id);
+  const [, params] = useRoute('/blog/:slug');
+  // GET SINGLE POST - Fetch post data by slug from URL
+  const post = getPostBySlug(params?.slug);
 
   // Handle post not found
   if (!post) {
@@ -66,7 +65,7 @@ export default function BlogPost() {
               "url": "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=256&q=80"
             }
           },
-          "mainEntityOfPage": `${window.location.origin}/blog/${post.id}`,
+          "mainEntityOfPage": `${window.location.origin}/blog/${post.slug}`,
           "inLanguage": "hi-IN"
         }}
       />

@@ -16,7 +16,7 @@ export default function BlogCard({ post }) {
       return;
     }
     // Navigate to the post page
-  window.location.href = `/blog/${post.id}`;
+  window.location.href = `/blog/${post.slug}`;
   };
 
   return (
@@ -55,7 +55,7 @@ export default function BlogCard({ post }) {
         <div className="flex items-center justify-between">
           <div className="social-share" onClick={(e) => e.stopPropagation()}>
             <SocialShare 
-              url={`/blog/${post.id}`}
+              url={`/blog/${post.slug}`}
               title={post.title}
             />
           </div>

@@ -89,7 +89,7 @@ export default function Sidebar() {
         
         <div className="space-y-4">
           {featuredPosts.map((post) => (
-            <Link key={post.id} href={`/blog/${post.id}`}>
+            <Link key={post.id} href={`/blog/${post.slug}`}>
               <div className="flex space-x-3 group cursor-pointer">
                 <img
                   src={post.image}
