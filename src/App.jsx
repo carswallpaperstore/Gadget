@@ -11,6 +11,7 @@ import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
 import BlogPost from "./pages/BlogPost";
 import NotFound from "./pages/not-found";
+import SEOHead from "./components/SEOHead";
 
 function Router() {
   return (
@@ -21,8 +22,9 @@ function Router() {
         <Route path="/contact" component={Contact} />
         <Route path="/privacy" component={Privacy} />
         <Route path="/terms" component={Terms} />
-        <Route path="/blog/:id" component={BlogPost} />
-        {/* always keep NotFound last */}
+        {/* Changed id → slug */}
+        <Route path="/blog/:slug" component={BlogPost} />
+        {/* keep NotFound last */}
         <Route component={NotFound} />
       </Switch>
     </Layout>
@@ -34,6 +36,12 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Toaster />
+        {/* Default SEO for site */}
+        <SEOHead
+          title="TechGuru India – Latest Tech, Mobile & Gadget Reviews"
+          description="Read the latest mobile launches, gadget reviews, and trending technology news on TechGuru India."
+          canonical="https://techguruindia.co.in/"
+        />
         <Router />
       </TooltipProvider>
     </QueryClientProvider>

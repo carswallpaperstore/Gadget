@@ -1,13 +1,14 @@
-import React from "react";
+import React, { useMemo } from "react";
 /**
- * BLOG POST PAGE
- * =============
- * Individual blog post display with full content
- * Includes social sharing, SEO optimization, and structured data
+ * BLOG POST PAGE (Duplicate-Content Safe)
+ * ======================================
+ * • Fixes canonical/OG URL to use slug (NOT id)
+ * • Avoids direct window usage inside JSX props
+ * • Provides robust fallbacks for description
  */
 
 import { useRoute } from 'wouter';
-import { ArrowLeft, Calendar, User, Share2 } from 'lucide-react';
+import { ArrowLeft, Calendar, User } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Link } from 'wouter';
 import SocialShare from '../components/SocialShare';
@@ -18,6 +19,20 @@ export default function BlogPost() {
   const [, params] = useRoute('/blog/:slug');
   // GET SINGLE POST - Fetch post data by slug from URL
   const post = getPostBySlug(params?.slug);
+
+  // Pre-compute canonical + share URL safely (SSR friendly)
+  const { canonicalUrl, canonicalPath, shareUrl, metaDescription } = useMemo(() => {
+    const origin = typeof window !== 'undefined' && window.location?.origin ? window.location.origin : '';
+    const path = post?.slug ? `/blog/${post.slug}` : '';
+    const url = origin && path ? `${origin}${path}` : path;
+    const desc = (post?.excerpt || (post?.content ? String(post.content).replace(/\n/g, ' ').slice(0, 160) : '')).trim();
+    return {
+      canonicalUrl: url,
+      canonicalPath: path,
+      shareUrl: url,
+      metaDescription: desc
+    };
+  }, [post]);
 
   // Handle post not found
   if (!post) {
@@ -42,14 +57,19 @@ export default function BlogPost() {
       {/* SEO HEAD - Individual post optimization */}
       <SEOHead 
         title={`${post.title} | TechGuru India`}
-        description={post.excerpt}
+        description={metaDescription}
         image={post.image}
         type="article"
+        // ✅ Pass canonical URL based on slug (prevents duplicate canonical issues)
+        canonical={canonicalUrl}
+        // (If your SEOHead supports url/ogUrl props, keep them in sync)
+        url={canonicalUrl}
+        ogUrl={canonicalUrl}
         structuredData={{
           "@context": "https://schema.org",
           "@type": "NewsArticle",
           "headline": post.title,
-          "description": post.excerpt,
+          "description": metaDescription,
           "image": [post.image],
           "datePublished": post.publishedAt,
           "dateModified": post.updatedAt || post.publishedAt,
@@ -65,8 +85,11 @@ export default function BlogPost() {
               "url": "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=256&q=80"
             }
           },
-          "mainEntityOfPage": `${window.location.origin}/blog/${post.slug}`,
-          "inLanguage": "hi-IN"
+          // ✅ Match structured data URL to canonical (not id)
+          "mainEntityOfPage": canonicalUrl,
+          "inLanguage": "hi-IN",
+          // Optional but helpful to disambiguate topical clusters
+          "articleSection": post.category || "Technology"
         }}
       />
 
@@ -105,7 +128,7 @@ export default function BlogPost() {
             </div>
             <div className="flex items-center space-x-2">
               <Calendar className="w-4 h-4" />
-              <time className="english-text">
+              <time className="english-text" dateTime={new Date(post.publishedAt).toISOString()}>
                 {new Date(post.publishedAt).toLocaleDateString('hi-IN', {
                   year: 'numeric',
                   month: 'long',
@@ -118,10 +141,11 @@ export default function BlogPost() {
           {/* SOCIAL SHARING */}
           <div className="flex items-center gap-4">
             <span className="text-sm text-muted-foreground hindi-text">Share करें:</span>
+            {/* ✅ Use canonical/slug URL for shares to avoid multiple URLs for the same content */}
             <SocialShare 
-              url={`${window.location.origin}/blog/${post.id}`}
+              url={shareUrl}
               title={post.title}
-              description={post.excerpt}
+              description={metaDescription}
             />
           </div>
         </header>
@@ -172,10 +196,11 @@ export default function BlogPost() {
             <p className="text-muted-foreground mb-4 hindi-text">
               यह post helpful लगी? अपने friends के साथ share करें:
             </p>
+            {/* ✅ Bottom share uses the same canonical URL */}
             <SocialShare 
-              url={`${window.location.origin}/blog/${post.id}`}
+              url={shareUrl}
               title={post.title}
-              description={post.excerpt}
+              description={metaDescription}
               showLabels={true}
             />
           </div>
