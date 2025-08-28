@@ -59,8 +59,21 @@ export default function Contact() {
   return (
     <>
       <SEOHead 
-        title="Contact Us | TechGuru India"
-        description="TechGuru India से संपर्क करें। Tech news, reviews या suggestions के लिए हमसे बात करें।"
+        title="Contact Us | TechGuru India - हमसे संपर्क करें"
+        description="TechGuru India से संपर्क करें। Tech news, reviews या suggestions के लिए हमसे बात करें। Email: techguruindia321@gmail.com, Phone: +91 8055220689"
+        canonical="contact"
+        type="website"
+        keywords={["TechGuru India contact", "tech support india", "gadget review contact", "hindi tech help"]}
+        faqs={[
+          {
+            question: "Review के लिए gadget कैसे भेजें?",
+            answer: "Review के लिए product भेजने से पहले हमसे email या phone पर संपर्क करें।"
+          },
+          {
+            question: "Advertisement के लिए कैसे contact करें?",
+            answer: "Advertisement और partnership के लिए techguruindia321@gmail.com पर email करें।"
+          }
+        ]}
       />
       
       <div className="max-w-6xl mx-auto">

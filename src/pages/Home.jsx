@@ -55,6 +55,11 @@ export default function Home() {
       <SEOHead 
         title="TechGuru India - Latest Tech News, Reviews और Updates"
         description="भारत की #1 tech website। Latest smartphones, laptops, gadgets की reviews और tech news पढ़ें। iPhone, Samsung, OnePlus और बाकी brands की detailed analysis।"
+        canonical=""
+        type="website"
+        keywords={["tech news hindi", "smartphone reviews", "gadget news", "mobile launch", "tech updates", "hindi technology blog"]}
+        preloadResources={true}
+        criticalCSS={true}
       />
       
       <div className="max-w-6xl mx-auto space-y-12">
@@ -90,11 +95,12 @@ export default function Home() {
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {featuredPosts.slice(0, 3).map((post) => (
+              {featuredPosts.slice(0, 3).map((post, index) => (
                 <BlogCard 
                   key={post.id} 
                   post={post} 
                   featured={true}
+                  priority={index === 0} // Prioritize first featured post
                 />
               ))}
             </div>

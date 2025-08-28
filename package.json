@@ -10,16 +10,17 @@
     "serve": "npx vite preview"
   },
   "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "wouter": "^2.11.2",
-    "lucide-react": "^0.263.0",
-    "class-variance-authority": "^0.7.0",
-    "clsx": "^2.0.0",
-    "tailwind-merge": "^1.14.0",
     "@tanstack/react-query": "^4.32.0",
     "@tanstack/react-query-devtools": "^4.32.0",
-    "axios": "^1.4.0"
+    "axios": "^1.4.0",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.0.0",
+    "lucide-react": "^0.263.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-helmet-async": "^2.0.5",
+    "tailwind-merge": "^1.14.0",
+    "wouter": "^2.11.2"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",

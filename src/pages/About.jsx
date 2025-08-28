@@ -38,8 +38,11 @@ export default function About() {
   return (
     <>
       <SEOHead 
-        title="About Us - TechGuru India"
-        description="TechGuru India के बारे में जानें। हमारी team, mission और vision के बारे में पढ़ें।"
+        title="About Us - TechGuru India के बारे में जानें"
+        description="TechGuru India के बारे में जानें। हमारी team, mission और vision के बारे में पढ़ें। भारत की #1 tech website की story और values।"
+        canonical="about"
+        type="website"
+        keywords={["TechGuru India about", "tech website team", "hindi tech blog", "technology news india"]}
       />
       
       <div className="max-w-6xl mx-auto">

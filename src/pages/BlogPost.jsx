@@ -1,12 +1,4 @@
 import React, { useMemo } from "react";
-/**
- * BLOG POST PAGE (Duplicate-Content Safe)
- * ======================================
- * • Fixes canonical/OG URL to use slug (NOT id)
- * • Avoids direct window usage inside JSX props
- * • Provides robust fallbacks for description
- */
-
 import { useRoute } from 'wouter';
 import { ArrowLeft, Calendar, User } from 'lucide-react';
 import { Button } from '../components/ui/button';
@@ -56,41 +48,18 @@ export default function BlogPost() {
     <>
       {/* SEO HEAD - Individual post optimization */}
       <SEOHead 
-        title={`${post.title} | TechGuru India`}
+        title={post?.seo?.title || `${post.title} | TechGuru India`}
         description={metaDescription}
         image={post.image}
         type="article"
-        // ✅ Pass canonical URL based on slug (prevents duplicate canonical issues)
-        canonical={canonicalUrl}
-        // (If your SEOHead supports url/ogUrl props, keep them in sync)
-        url={canonicalUrl}
-        ogUrl={canonicalUrl}
-        structuredData={{
-          "@context": "https://schema.org",
-          "@type": "NewsArticle",
-          "headline": post.title,
-          "description": metaDescription,
-          "image": [post.image],
-          "datePublished": post.publishedAt,
-          "dateModified": post.updatedAt || post.publishedAt,
-          "author": [{
-            "@type": "Person",
-            "name": post.author
-          }],
-          "publisher": {
-            "@type": "Organization",
-            "name": "TechGuru India",
-            "logo": {
-              "@type": "ImageObject",
-              "url": "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=256&q=80"
-            }
-          },
-          // ✅ Match structured data URL to canonical (not id)
-          "mainEntityOfPage": canonicalUrl,
-          "inLanguage": "hi-IN",
-          // Optional but helpful to disambiguate topical clusters
-          "articleSection": post.category || "Technology"
-        }}
+        canonical={`blog/${post.slug}`}
+        keywords={post.seo?.keywords || []}
+        post={post}
+        breadcrumbs={[
+          { name: 'Home', url: canonicalUrl.replace(`/blog/${post.slug}`, '') },
+          { name: 'Blog', url: canonicalUrl.replace(`/${post.slug}`, '') },
+          { name: post.title, url: canonicalUrl }
+        ]}
       />
 
       <article className="max-w-4xl mx-auto">
@@ -109,8 +78,8 @@ export default function BlogPost() {
           <img
             src={post.image}
             alt={post.title}
+            loading="eager"
             className="w-full h-full object-cover"
-            loading="lazy"
           />
         </div>
 
