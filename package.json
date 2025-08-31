@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "dev": "vite --mode dev",
-    "build": "vite build"
-  },
+    "build": "vite build",
+    "preview": "vite preview"
+  },,
   "keywords": [],
   "author": "",
   "license": "ISC",
