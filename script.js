@@ -44,6 +44,9 @@ function initMobileNavigation() {
 function initLazyLoading() {
     const lazyImages = document.querySelectorAll('.lazy-load');
     
+    // If no lazy images, exit early
+    if (lazyImages.length === 0) return;
+    
     const imageObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -59,7 +62,10 @@ function initLazyLoading() {
     });
     
     lazyImages.forEach(img => {
-        imageObserver.observe(img);
+        // Ensure data-src attribute exists
+        if (img.dataset.src) {
+            imageObserver.observe(img);
+        }
     });
 }
 
