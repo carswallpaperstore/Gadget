@@ -60,5 +60,11 @@
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
+    <url>
+        <loc>https://www.techguruindia.co.in/dji-avata-2-blog.html</loc>
+        <lastmod>2025-09-03</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
    
 </urlset>
