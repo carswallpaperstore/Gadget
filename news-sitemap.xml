@@ -106,4 +106,17 @@
     </news:news>
   </url>
 
+  <!-- Sony Xperia 1 VII -->
+  <url>
+    <loc>https://www.techguruindia.co.in/sony-xperia-1-vii-review.html</loc>
+    <news:news>
+      <news:publication>
+        <news:name>TechGuru India</news:name>
+        <news:language>hi</news:language>
+      </news:publication>
+      <news:publication_date>2025-09-05T17:00:00+05:30</news:publication_date>
+      <news:title>ऐसा फोन पहले कभी नहीं देखा — Sony Xperia 1 VII ने सबको हैरान कर दिया!</news:title>
+    </news:news>
+  </url>
+
 </urlset>
