@@ -143,5 +143,17 @@
       <news:title>इतनी ताकत और फीचर्स वाला फोन आपने पहले कभी नहीं देखा होगा</news:title>
     </news:news>
   </url>
+  <!-- Realme GT 7T -->
+  <url>
+    <loc>https://www.techguruindia.co.in/oppo-reno14-series-blog.html</loc>
+    <news:news>
+      <news:publication>
+        <news:name>TechGuru India</news:name>
+        <news:language>hi</news:language>
+      </news:publication>
+      <news:publication_date>2025-09-08T10:00:00+05:30</news:publication_date>
+      <news:title>OPPO Reno14 Series 5G – स्मार्टफोन की दुनिया में नया धमाका</news:title>
+    </news:news>
+  </url>
 
 </urlset>
