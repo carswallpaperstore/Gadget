@@ -155,5 +155,17 @@
       <news:title>OPPO Reno14 Series 5G – स्मार्टफोन की दुनिया में नया धमाका</news:title>
     </news:news>
   </url>
+  <!-- Realme GT 7T -->
+  <url>
+    <loc>https://www.techguruindia.co.in/roborock-saros-z70-blog.html</loc>
+    <news:news>
+      <news:publication>
+        <news:name>TechGuru India</news:name>
+        <news:language>hi</news:language>
+      </news:publication>
+      <news:publication_date>2025-09-09T11:00:00+05:30</news:publication_date>
+      <news:title>Roborock Saros Z70: स्मार्ट रोबोट वैक्यूम क्लीनर जो आपके सफाई के काम को आसान बना देगा</news:title>
+    </news:news>
+  </url>
 
 </urlset>
