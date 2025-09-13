@@ -179,5 +179,17 @@
       <news:title>iPhone Air: हल्का, स्टाइलिश और पावरफुल स्मार्टफोन</news:title>
     </news:news>
   </url>
+  <!-- Realme GT 7T -->
+  <url>
+    <loc>https://www.techguruindia.co.in/infinix-gt30pro-5g-blog.html</loc>
+    <news:news>
+      <news:publication>
+        <news:name>TechGuru India</news:name>
+        <news:language>hi</news:language>
+      </news:publication>
+      <news:publication_date>2025-09-13T12:40:00+05:30</news:publication_date>
+      <news:title>Infinix का ये फोन है सभी गेमिंग फोन का बादशाह। 20 मिनट में पूरा चार्ज, 108MP कैमरा</news:title>
+    </news:news>
+  </url>
 
 </urlset>
