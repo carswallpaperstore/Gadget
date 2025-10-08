@@ -1,0 +1,1168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Features | TechGuru India</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #00d4ff;
+            --primary-light: #4de3ff;
+            --primary-dark: #00a8cc;
+            --light: #121212;
+            --light-gray: #1e1e1e;
+            --gray: #a0a0a0;
+            --dark: #e0e0e0;
+            --darker: #f5f5f5;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            background: linear-gradient(90deg, var(--primary), var(--primary-light));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .section-title p {
+            color: var(--gray);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: #121212;
+            box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            transition: var(--transition);
+            z-index: -1;
+        }
+
+        .btn-primary:hover::before {
+            left: 0;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 212, 255, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-secondary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--primary);
+            transition: var(--transition);
+            z-index: -1;
+        }
+
+        .btn-secondary:hover::before {
+            left: 0;
+        }
+
+        .btn-secondary:hover {
+            color: #121212;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 212, 255, 0.2);
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: var(--transition);
+            padding: 20px 0;
+            background: rgba(18, 18, 18, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        header.scrolled {
+            padding: 15px 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--primary), var(--primary-light));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-light);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .features-hero {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(18, 18, 18, 0.9), rgba(30, 30, 30, 0.8)), 
+                        url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            padding-top: 100px;
+        }
+
+        .hero-content {
+            max-width: 700px;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: var(--darker);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--gray);
+            margin-bottom: 30px;
+        }
+
+        .hero-shapes {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), transparent);
+            opacity: 0.2;
+            animation: float 15s infinite linear;
+        }
+
+        .shape-1 {
+            width: 300px;
+            height: 300px;
+            top: 10%;
+            left: 5%;
+            animation-delay: 0s;
+        }
+
+        .shape-2 {
+            width: 200px;
+            height: 200px;
+            top: 60%;
+            left: 80%;
+            animation-delay: 5s;
+        }
+
+        .shape-3 {
+            width: 150px;
+            height: 150px;
+            top: 20%;
+            left: 70%;
+            animation-delay: 10s;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(180deg);
+            }
+            100% {
+                transform: translateY(0) rotate(360deg);
+            }
+        }
+
+        /* Features Section */
+        .features {
+            background-color: var(--light);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: var(--light-gray);
+            border-radius: 15px;
+            padding: 30px;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            transform-style: preserve-3d;
+            transform: perspective(1000px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.05), transparent);
+            z-index: -1;
+            transition: var(--transition);
+            opacity: 0;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px) rotateX(5deg);
+            box-shadow: 0 15px 30px rgba(0, 212, 255, 0.1);
+        }
+
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--darker);
+        }
+
+        .feature-card p {
+            color: var(--gray);
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+
+        .feature-details {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .feature-details ul {
+            margin-top: 10px;
+        }
+
+        .feature-details li {
+            color: var(--gray);
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 20px;
+            font-size: 0.9rem;
+        }
+
+        .feature-details li:before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+        }
+
+        /* Feature Comparison Section */
+        .feature-comparison {
+            background-color: var(--light-gray);
+        }
+
+        .comparison-table {
+            background: var(--light);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .comparison-header {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            padding: 20px 30px;
+            background: var(--light-gray);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .comparison-header h3 {
+            font-size: 1.2rem;
+            color: var(--darker);
+        }
+
+        .comparison-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            padding: 20px 30px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            transition: var(--transition);
+        }
+
+        .comparison-row:hover {
+            background: rgba(0, 212, 255, 0.02);
+        }
+
+        .comparison-row:last-child {
+            border-bottom: none;
+        }
+
+        .feature-name {
+            font-weight: 500;
+            color: var(--darker);
+        }
+
+        .feature-status {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .status-yes {
+            color: #4ade80;
+        }
+
+        .status-no {
+            color: #f87171;
+        }
+
+        /* Feature Benefits Section */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .benefit-card {
+            background: var(--light-gray);
+            border-radius: 15px;
+            padding: 30px;
+            transition: var(--transition);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 212, 255, 0.1);
+        }
+
+        .benefit-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            color: #121212;
+        }
+
+        .benefit-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--darker);
+        }
+
+        .benefit-card p {
+            color: var(--gray);
+            flex-grow: 1;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: #121212;
+            text-align: center;
+            padding: 80px 0;
+        }
+
+        .cta-section .section-title h2 {
+            background: none;
+            color: #121212;
+            -webkit-background-clip: initial;
+            background-clip: initial;
+        }
+
+        .cta-section .section-title p {
+            color: rgba(18, 18, 18, 0.8);
+        }
+
+        .cta-btns {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .cta-btn-primary {
+            background: #121212;
+            color: var(--primary);
+        }
+
+        .cta-btn-secondary {
+            background: transparent;
+            color: #121212;
+            border: 2px solid #121212;
+        }
+
+        /* Footer */
+        footer {
+            background: #0a0a0a;
+            padding: 70px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-col h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+            color: var(--darker);
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--primary);
+        }
+
+        .footer-about p {
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            color: var(--gray);
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+            color: #121212;
+            transform: translateY(-5px);
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: var(--gray);
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+            padding-left: 5px;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Animation Classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .slide-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .slide-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .scale-in {
+            opacity: 0;
+            transform: scale(0.8);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .scale-in.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--light-gray);
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+                text-align: center;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .comparison-header, .comparison-row {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+            
+            .cta-btns {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .section {
+                padding: 70px 0;
+            }
+            
+            .feature-card, .benefit-card {
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header id="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">TechGuru India</a>
+                <ul class="nav-links">
+                    <li><a href="Home.html">Home</a></li>
+                    <li><a href="Features.html">Features</a></li>
+                    <li><a href="Services.html">Services</a></li>
+                    <li><a href="Frameworks.html">Frameworks</a></li>
+                    <li><a href="WhyUs.html">Why Us</a></li>
+                    <li><a href="Portfolio.html">Portfolio</a></li>
+                    <li><a href="About.html">About Us</a></li>
+                    <li><a href="Blog.html">Blog</a></li>
+                    <li><a href="Contact.html">Contact</a></li>
+                </ul>
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Features Hero Section -->
+    <section class="features-hero">
+        <div class="hero-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="fade-in">Powerful Features for Your Digital Success</h1>
+                <p class="fade-in">Discover the comprehensive set of features that make TechGuru India the preferred choice for web development. Our cutting-edge solutions are designed to boost your online presence and drive business growth.</p>
+                <div class="hero-btns">
+                    <a href="#features" class="btn btn-primary fade-in">Explore Features</a>
+                    <a href="contact.html" class="btn btn-secondary fade-in">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section features" id="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Comprehensive Features</h2>
+                <p>We provide a complete suite of features to ensure your website performs optimally and delivers exceptional user experience.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card scale-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>Advanced SEO Optimization</h3>
+                    <p>Maximize your online visibility with our comprehensive SEO strategies that drive organic traffic and improve search engine rankings.</p>
+                    <div class="feature-details">
+                        <ul>
+                            <li>On-page SEO optimization</li>
+                            <li>Technical SEO implementation</li>
+                            <li>Content strategy development</li>
+                            <li>Local SEO for businesses</li>
+                            <li>SEO performance tracking</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="feature-card scale-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Advanced Analytics & Tracking</h3>
+                    <p>Gain valuable insights into your website performance with our integrated analytics and tracking solutions.</p>
+                    <div class="feature-details">
+                        <ul>
+                            <li>Google Analytics integration</li>
+                            <li>Custom dashboard creation</li>
+                            <li>Conversion tracking setup</li>
+                            <li>User behavior analysis</li>
+                            <li>Real-time reporting</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="feature-card scale-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-pen"></i>
+                    </div>
+                    <h3>Content Management System</h3>
+                    <p>Easily manage and update your website content with our user-friendly content management systems.</p>
+                    <div class="feature-details">
+                        <ul>
+                            <li>Custom CMS development</li>
+                            <li>WordPress integration</li>
+                            <li>Blog management tools</li>
+                            <li>Media library organization</li>
+                            <li>Multi-user access control</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="feature-card scale-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Custom Web Solutions</h3>
+                    <p>Get tailored web solutions designed specifically to meet your unique business requirements and goals.</p>
+                    <div class="feature-details">
+                        <ul>
+                            <li>Custom functionality development</li>
+                            <li>API integration services</li>
+                            <li>Third-party system integration</li>
+                            <li>Scalable architecture design</li>
+                            <li>Future-proof technology stack</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="feature-card scale-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Responsive Design</h3>
+                    <p>Ensure your website looks perfect and functions flawlessly across all devices and screen sizes.</p>
+                    <div class="feature-details">
+                        <ul>
+                            <li>Mobile-first approach</li>
+                            <li>Cross-browser compatibility</li>
+                            <li>Touch-friendly interfaces</li>
+                            <li>Performance optimization</li>
+                            <li>Progressive Web App features</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="feature-card scale-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3>Secure & Fast Hosting</h3>
+                    <p>Benefit from our reliable hosting solutions with top-notch security and exceptional performance.</p>
+                    <div class="feature-details">
+                        <ul>
+                            <li>SSL certificate installation</li>
+                            <li>Regular security updates</li>
+                            <li>Daily backup systems</li>
+                            <li>CDN integration</li>
+                            <li>99.9% uptime guarantee</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="feature-card scale-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>24/7 Technical Support</h3>
+                    <p>Get round-the-clock technical support to ensure your website runs smoothly at all times.</p>
+                    <div class="feature-details">
+                        <ul>
+                            <li>24/7 monitoring</li>
+                            <li>Quick response times</li>
+                            <li>Emergency support</li>
+                            <li>Regular maintenance</li>
+                            <li>Performance optimization</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="feature-card scale-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3>E-commerce Integration</h3>
+                    <p>Set up complete online stores with secure payment gateways and comprehensive inventory management.</p>
+                    <div class="feature-details">
+                        <ul>
+                            <li>Multiple payment options</li>
+                            <li>Inventory management</li>
+                            <li>Order tracking system</li>
+                            <li>Customer account management</li>
+                            <li>Marketing tools integration</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature Comparison Section -->
+    <section class="section feature-comparison">
+        <div class="container">
+            <div class="section-title">
+                <h2>Feature Comparison</h2>
+                <p>See how our features compare to standard web development services.</p>
+            </div>
+            <div class="comparison-table fade-in">
+                <div class="comparison-header">
+                    <h3>Feature</h3>
+                    <h3>TechGuru India</h3>
+                    <h3>Standard Services</h3>
+                </div>
+                <div class="comparison-row">
+                    <div class="feature-name">Advanced SEO Optimization</div>
+                    <div class="feature-status status-yes"><i class="fas fa-check-circle"></i> Included</div>
+                    <div class="feature-status status-no"><i class="fas fa-times-circle"></i> Limited</div>
+                </div>
+                <div class="comparison-row">
+                    <div class="feature-name">Custom CMS Development</div>
+                    <div class="feature-status status-yes"><i class="fas fa-check-circle"></i> Included</div>
+                    <div class="feature-status status-no"><i class="fas fa-times-circle"></i> Extra Cost</div>
+                </div>
+                <div class="comparison-row">
+                    <div class="feature-name">24/7 Technical Support</div>
+                    <div class="feature-status status-yes"><i class="fas fa-check-circle"></i> Included</div>
+                    <div class="feature-status status-no"><i class="fas fa-times-circle"></i> Limited Hours</div>
+                </div>
+                <div class="comparison-row">
+                    <div class="feature-name">Performance Optimization</div>
+                    <div class="feature-status status-yes"><i class="fas fa-check-circle"></i> Comprehensive</div>
+                    <div class="feature-status status-no"><i class="fas fa-times-circle"></i> Basic</div>
+                </div>
+                <div class="comparison-row">
+                    <div class="feature-name">Security Features</div>
+                    <div class="feature-status status-yes"><i class="fas fa-check-circle"></i> Advanced</div>
+                    <div class="feature-status status-no"><i class="fas fa-times-circle"></i> Standard</div>
+                </div>
+                <div class="comparison-row">
+                    <div class="feature-name">Regular Updates & Maintenance</div>
+                    <div class="feature-status status-yes"><i class="fas fa-check-circle"></i> Included</div>
+                    <div class="feature-status status-no"><i class="fas fa-times-circle"></i> Extra Cost</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Benefits of Our Features</h2>
+                <p>Discover how our comprehensive features translate into real business benefits.</p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Increased Visibility</h3>
+                    <p>Our SEO optimization and marketing features help your website rank higher in search results, increasing visibility and attracting more potential customers.</p>
+                </div>
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <h3>Better User Engagement</h3>
+                    <p>With responsive design and intuitive interfaces, your visitors will have a seamless experience, leading to higher engagement and conversion rates.</p>
+                </div>
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Enhanced Security</h3>
+                    <p>Our security features protect your website and customer data from threats, building trust and credibility for your brand.</p>
+                </div>
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Streamlined Operations</h3>
+                    <p>Custom CMS and management tools make it easy to update content and manage your website, saving time and resources.</p>
+                </div>
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon">
+                        <i class="fas fa-mobile"></i>
+                    </div>
+                    <h3>Mobile Accessibility</h3>
+                    <p>With responsive design, your website will provide an optimal experience on all devices, capturing the growing mobile audience.</p>
+                </div>
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon">
+                        <i class="fas fa-hand-holding-usd"></i>
+                    </div>
+                    <h3>Cost Efficiency</h3>
+                    <p>Our comprehensive feature set eliminates the need for multiple third-party services, saving you money in the long run.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Ready to Leverage Our Powerful Features?</h2>
+                <p>Get started with TechGuru India today and transform your online presence with our comprehensive feature set.</p>
+            </div>
+            <div class="cta-btns">
+                <a href="contact.html" class="btn cta-btn-primary">Start Your Project</a>
+                <a href="services.html" class="btn cta-btn-secondary">View Our Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col footer-about">
+                    <h3>TechGuru India</h3>
+                    <p>We are a professional web development company dedicated to creating stunning, functional websites that help businesses grow and succeed in the digital world.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="services.html">Business Websites</a></li>
+                        <li><a href="services.html">E-commerce Solutions</a></li>
+                        <li><a href="services.html">Portfolio Websites</a></li>
+                        <li><a href="services.html">Web Applications</a></li>
+                        <li><a href="services.html">SEO Optimization</a></li>
+                    </ul>
+                </div>
+               <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="Home.html">Home</a></li>
+                        <li><a href="Features.html">Features</a></li>
+                        <li><a href="Services.html">Services</a></li>
+                        <li><a href="About.html">About Us</a></li>
+                        <li><a href="Contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Support</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Sitemap</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 TechGuru India. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        });
+
+        // Scroll animation
+        function checkScroll() {
+            const elements = document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in');
+            
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+
+        // Initialize animations when page loads
+        window.addEventListener('load', function() {
+            // Check scroll position for animations
+            checkScroll();
+            
+            // Add scroll event listener
+            window.addEventListener('scroll', checkScroll);
+        });
+    </script>
+</body>
+</html>

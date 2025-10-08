@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | TechGuru India</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #00d4ff;
+            --primary-light: #4de3ff;
+            --primary-dark: #00a8cc;
+            --light: #121212;
+            --light-gray: #1e1e1e;
+            --gray: #a0a0a0;
+            --dark: #e0e0e0;
+            --darker: #f5f5f5;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            background: linear-gradient(90deg, var(--primary), var(--primary-light));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .section-title p {
+            color: var(--gray);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: #121212;
+            box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            transition: var(--transition);
+            z-index: -1;
+        }
+
+        .btn-primary:hover::before {
+            left: 0;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 212, 255, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-secondary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--primary);
+            transition: var(--transition);
+            z-index: -1;
+        }
+
+        .btn-secondary:hover::before {
+            left: 0;
+        }
+
+        .btn-secondary:hover {
+            color: #121212;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 212, 255, 0.2);
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: var(--transition);
+            padding: 20px 0;
+            background: rgba(18, 18, 18, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        header.scrolled {
+            padding: 15px 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--primary), var(--primary-light));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-light);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .services-hero {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(18, 18, 18, 0.9), rgba(30, 30, 30, 0.8)), 
+                        url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            padding-top: 100px;
+        }
+
+        .hero-content {
+            max-width: 700px;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: var(--darker);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--gray);
+            margin-bottom: 30px;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 15px;
+        }
+
+        .hero-shapes {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), transparent);
+            opacity: 0.2;
+            animation: float 15s infinite linear;
+        }
+
+        .shape-1 {
+            width: 300px;
+            height: 300px;
+            top: 10%;
+            left: 5%;
+            animation-delay: 0s;
+        }
+
+        .shape-2 {
+            width: 200px;
+            height: 200px;
+            top: 60%;
+            left: 80%;
+            animation-delay: 5s;
+        }
+
+        .shape-3 {
+            width: 150px;
+            height: 150px;
+            top: 20%;
+            left: 70%;
+            animation-delay: 10s;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(180deg);
+            }
+            100% {
+                transform: translateY(0) rotate(360deg);
+            }
+        }
+
+        /* Services Section */
+        .services {
+            background-color: var(--light);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--light-gray);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: var(--transition);
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 212, 255, 0.1);
+        }
+
+        .service-img {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .service-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-icon {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--darker);
+        }
+
+        .service-card p {
+            color: var(--gray);
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+
+        .service-features {
+            margin: 15px 0;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .service-features li {
+            color: var(--gray);
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 20px;
+            font-size: 0.9rem;
+        }
+
+        .service-features li:before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+        }
+
+        .service-cta {
+            margin-top: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .service-price {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        /* Service Detail Section */
+        .service-detail {
+            background: var(--light-gray);
+            padding: 80px 0;
+        }
+
+        .service-detail-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-detail-card {
+            background: var(--light);
+            border-radius: 15px;
+            padding: 30px;
+            transition: var(--transition);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .service-detail-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 212, 255, 0.1);
+        }
+
+        .service-detail-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--darker);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .service-detail-card h3 i {
+            color: var(--primary);
+        }
+
+        .service-detail-card ul {
+            margin-top: 15px;
+        }
+
+        .service-detail-card li {
+            color: var(--gray);
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .service-detail-card li:before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+        }
+
+        /* Process Section */
+        .process-section {
+            background-color: var(--light);
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .process-step {
+            text-align: center;
+            padding: 30px;
+            background: var(--light-gray);
+            border-radius: 15px;
+            transition: var(--transition);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+        }
+
+        .process-step:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 212, 255, 0.1);
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #121212;
+        }
+
+        .process-step h3 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: var(--darker);
+        }
+
+        .process-step p {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: #121212;
+            text-align: center;
+            padding: 80px 0;
+        }
+
+        .cta-section .section-title h2 {
+            background: none;
+            color: #121212;
+            -webkit-background-clip: initial;
+            background-clip: initial;
+        }
+
+        .cta-section .section-title p {
+            color: rgba(18, 18, 18, 0.8);
+        }
+
+        .cta-btns {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .cta-btn-primary {
+            background: #121212;
+            color: var(--primary);
+        }
+
+        .cta-btn-secondary {
+            background: transparent;
+            color: #121212;
+            border: 2px solid #121212;
+        }
+
+        /* Footer */
+        footer {
+            background: #0a0a0a;
+            padding: 70px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-col h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+            color: var(--darker);
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--primary);
+        }
+
+        .footer-about p {
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            color: var(--gray);
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+            color: #121212;
+            transform: translateY(-5px);
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: var(--gray);
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+            padding-left: 5px;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Animation Classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .slide-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .slide-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .scale-in {
+            opacity: 0;
+            transform: scale(0.8);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .scale-in.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--light-gray);
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+                text-align: center;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-btns {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .section {
+                padding: 70px 0;
+            }
+            
+            .service-card, .service-detail-card {
+                padding: 20px;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+   <!-- Header & Navigation -->
+    <header id="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">TechGuru India</a>
+                <ul class="nav-links">
+                    <li><a href="Home.html">Home</a></li>
+                    <li><a href="Features.html">Features</a></li>
+                    <li><a href="Services.html">Services</a></li>
+                    <li><a href="Frameworks.html">Frameworks</a></li>
+                    <li><a href="WhyUs.html">Why Us</a></li>
+                    <li><a href="Portfolio.html">Portfolio</a></li>
+                    <li><a href="About.html">About Us</a></li>
+                    <li><a href="Blog.html">Blog</a></li>
+                    <li><a href="Contact.html">Contact</a></li>
+                </ul>
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Services Hero Section -->
+    <section class="services-hero">
+        <div class="hero-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="fade-in">Comprehensive Web Development Services</h1>
+                <p class="fade-in">From startups to enterprises, we offer a complete range of web development services tailored to your business needs. Our solutions are designed to drive growth and deliver exceptional user experiences.</p>
+                <div class="hero-btns">
+                    <a href="#services" class="btn btn-primary fade-in">View Services</a>
+                    <a href="contact.html" class="btn btn-secondary fade-in">Get Quote</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Services</h2>
+                <p>We offer a wide range of web development services to cater to diverse business needs and requirements.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');"></div>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <h3>Business Websites</h3>
+                        <p>Professional websites designed to represent your business, attract customers, and establish your online presence.</p>
+                        <div class="service-features">
+                            <ul>
+                                <li>Custom design and development</li>
+                                <li>Responsive layout for all devices</li>
+                                <li>SEO optimization</li>
+                                <li>Content management system</li>
+                                <li>Contact forms and lead generation</li>
+                            </ul>
+                        </div>
+                        <div class="service-cta">
+                            <span class="service-price">Starting at ₹5,000</span>
+                            <a href="contact.html" class="btn btn-primary">Get Started</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');"></div>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <h3>E-commerce Websites</h3>
+                        <p>Complete online stores with secure payment gateways, inventory management, and customer account systems.</p>
+                        <div class="service-features">
+                            <ul>
+                                <li>Product catalog management</li>
+                                <li>Secure payment integration</li>
+                                <li>Inventory tracking</li>
+                                <li>Order management system</li>
+                                <li>Customer reviews and ratings</li>
+                            </ul>
+                        </div>
+                        <div class="service-cta">
+                            <span class="service-price">Starting at ₹10,000</span>
+                            <a href="contact.html" class="btn btn-primary">Get Started</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');"></div>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <h3>Portfolio Websites</h3>
+                        <p>Showcase your work and talents with visually appealing portfolio websites that highlight your skills and achievements.</p>
+                        <div class="service-features">
+                            <ul>
+                                <li>Gallery and project showcase</li>
+                                <li>Client testimonials</li>
+                                <li>Contact and inquiry forms</li>
+                                <li>Blog integration</li>
+                                <li>Social media integration</li>
+                            </ul>
+                        </div>
+                        <div class="service-cta">
+                            <span class="service-price">Starting at ₹2,000</span>
+                            <a href="contact.html" class="btn btn-primary">Get Started</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');"></div>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3>Educational Platforms</h3>
+                        <p>Learning management systems and educational websites for institutions, tutors, and online course creators.</p>
+                        <div class="service-features">
+                            <ul>
+                                <li>Course management system</li>
+                                <li>Student progress tracking</li>
+                                <li>Payment integration</li>
+                                <li>Certificate generation</li>
+                                <li>Discussion forums</li>
+                            </ul>
+                        </div>
+                        <div class="service-cta">
+                            <span class="service-price">Starting at ₹20,000</span>
+                            <a href="contact.html" class="btn btn-primary">Get Started</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1504711434969-e33886168f5c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');"></div>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-newspaper"></i>
+                        </div>
+                        <h3>News & Magazine Websites</h3>
+                        <p>Content-rich websites for news portals, magazines, and publishing houses with advanced content management.</p>
+                        <div class="service-features">
+                            <ul>
+                                <li>Advanced content management</li>
+                                <li>Category and tag system</li>
+                                <li>Author management</li>
+                                <li>Subscription system</li>
+                                <li>Social sharing integration</li>
+                            </ul>
+                        </div>
+                        <div class="service-cta">
+                            <span class="service-price">Starting at ₹10,000</span>
+                            <a href="contact.html" class="btn btn-primary">Get Started</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80');"></div>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-pen"></i>
+                        </div>
+                        <h3>Blog Websites</h3>
+                        <p>Create and manage engaging blog content with user-friendly interfaces and powerful publishing tools.</p>
+                        <div class="service-features">
+                            <ul>
+                                <li>User-friendly content editor</li>
+                                <li>Comment management system</li>
+                                <li>SEO optimization tools</li>
+                                <li>Newsletter integration</li>
+                                <li>Social media sharing</li>
+                            </ul>
+                        </div>
+                        <div class="service-cta">
+                            <span class="service-price">Starting at ₹12,000</span>
+                            <a href="contact.html" class="btn btn-primary">Get Started</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Additional Services Section -->
+    <section class="section service-detail">
+        <div class="container">
+            <div class="section-title">
+                <h2>Additional Services</h2>
+                <p>Beyond standard website development, we offer specialized services to enhance your digital presence.</p>
+            </div>
+            <div class="service-detail-grid">
+                <div class="service-detail-card fade-in">
+                    <h3><i class="fas fa-search"></i> SEO Optimization</h3>
+                    <p>Improve your website's visibility in search engines and drive organic traffic with our comprehensive SEO services.</p>
+                    <ul>
+                        <li>Keyword research and analysis</li>
+                        <li>On-page optimization</li>
+                        <li>Technical SEO audit</li>
+                        <li>Content strategy development</li>
+                        <li>Local SEO optimization</li>
+                    </ul>
+                </div>
+                <div class="service-detail-card fade-in">
+                    <h3><i class="fas fa-tools"></i> Website Maintenance</h3>
+                    <p>Keep your website running smoothly with our regular maintenance and support services.</p>
+                    <ul>
+                        <li>Regular security updates</li>
+                        <li>Performance optimization</li>
+                        <li>Content updates</li>
+                        <li>Backup management</li>
+                        <li>24/7 technical support</li>
+                    </ul>
+                </div>
+                <div class="service-detail-card fade-in">
+                    <h3><i class="fas fa-paint-brush"></i> UI/UX Design</h3>
+                    <p>Create exceptional user experiences with our professional UI/UX design services.</p>
+                    <ul>
+                        <li>User research and analysis</li>
+                        <li>Wireframing and prototyping</li>
+                        <li>Visual design creation</li>
+                        <li>Usability testing</li>
+                        <li>Design system development</li>
+                    </ul>
+                </div>
+                <div class="service-detail-card fade-in">
+                    <h3><i class="fas fa-server"></i> Web Hosting</h3>
+                    <p>Reliable and secure hosting solutions with excellent performance and uptime.</p>
+                    <ul>
+                        <li>Fast and secure hosting</li>
+                        <li>SSL certificate installation</li>
+                        <li>Regular backups</li>
+                        <li>Domain registration</li>
+                        <li>Email setup</li>
+                    </ul>
+                </div>
+                <div class="service-detail-card fade-in">
+                    <h3><i class="fas fa-chart-line"></i> Digital Marketing</h3>
+                    <p>Promote your website and reach your target audience with our digital marketing strategies.</p>
+                    <ul>
+                        <li>Social media marketing</li>
+                        <li>Content marketing</li>
+                        <li>Email marketing campaigns</li>
+                        <li>PPC advertising</li>
+                        <li>Analytics and reporting</li>
+                    </ul>
+                </div>
+                <div class="service-detail-card fade-in">
+                    <h3><i class="fas fa-mobile-alt"></i> Mobile App Development</h3>
+                    <p>Extend your digital presence with custom mobile applications for iOS and Android.</p>
+                    <ul>
+                        <li>Native iOS and Android apps</li>
+                        <li>Cross-platform development</li>
+                        <li>UI/UX design for mobile</li>
+                        <li>App store submission</li>
+                        <li>Maintenance and updates</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="section process-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Development Process</h2>
+                <p>We follow a structured approach to ensure timely delivery and exceptional quality in every project.</p>
+            </div>
+            <div class="process-steps">
+                <div class="process-step fade-in">
+                    <div class="step-number">1</div>
+                    <h3>Discovery & Planning</h3>
+                    <p>We begin by understanding your business goals, target audience, and project requirements to create a comprehensive plan.</p>
+                </div>
+                <div class="process-step fade-in">
+                    <div class="step-number">2</div>
+                    <h3>Design & Prototyping</h3>
+                    <p>Our designers create wireframes and mockups to visualize the website structure and user experience before development.</p>
+                </div>
+                <div class="process-step fade-in">
+                    <div class="step-number">3</div>
+                    <h3>Development</h3>
+                    <p>Our developers bring the designs to life using the latest technologies and best coding practices.</p>
+                </div>
+                <div class="process-step fade-in">
+                    <div class="step-number">4</div>
+                    <h3>Testing & Quality Assurance</h3>
+                    <p>We thoroughly test the website across devices and browsers to ensure optimal performance and functionality.</p>
+                </div>
+                <div class="process-step fade-in">
+                    <div class="step-number">5</div>
+                    <h3>Launch & Deployment</h3>
+                    <p>We deploy the website to your hosting environment and ensure everything is working correctly before going live.</p>
+                </div>
+                <div class="process-step fade-in">
+                    <div class="step-number">6</div>
+                    <h3>Support & Maintenance</h3>
+                    <p>We provide ongoing support and maintenance to keep your website secure, updated, and performing optimally.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Ready to Start Your Project?</h2>
+                <p>Contact us today for a free consultation and quote for your web development project.</p>
+            </div>
+            <div class="cta-btns">
+                <a href="contact.html" class="btn cta-btn-primary">Get Free Consultation</a>
+                <a href="portfolio.html" class="btn cta-btn-secondary">View Our Work</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col footer-about">
+                    <h3>TechGuru India</h3>
+                    <p>We are a professional web development company dedicated to creating stunning, functional websites that help businesses grow and succeed in the digital world.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="services.html">Business Websites</a></li>
+                        <li><a href="services.html">E-commerce Solutions</a></li>
+                        <li><a href="services.html">Portfolio Websites</a></li>
+                        <li><a href="services.html">Web Applications</a></li>
+                        <li><a href="services.html">SEO Optimization</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="Home.html">Home</a></li>
+                        <li><a href="Features.html">Features</a></li>
+                        <li><a href="Services.html">Services</a></li>
+                        <li><a href="About.html">About Us</a></li>
+                        <li><a href="Contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Support</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Sitemap</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 TechGuru India. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        });
+
+        // Scroll animation
+        function checkScroll() {
+            const elements = document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in');
+            
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+
+        // Initialize animations when page loads
+        window.addEventListener('load', function() {
+            // Check scroll position for animations
+            checkScroll();
+            
+            // Add scroll event listener
+            window.addEventListener('scroll', checkScroll);
+        });
+    </script>
+</body>
+</html>

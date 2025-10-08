@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us | TechGuru India</title>
+    <title>Why Choose Us | TechGuru India</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -222,7 +222,7 @@
         }
 
         /* Hero Section */
-        .about-hero {
+        .why-us-hero {
             min-height: 60vh;
             display: flex;
             align-items: center;
@@ -313,19 +313,19 @@
             }
         }
 
-        /* About Story Section */
-        .about-story {
+        /* Why Choose Us Section */
+        .why-choose-us {
             background-color: var(--light);
         }
 
-        .story-content {
+        .why-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 50px;
             align-items: center;
         }
 
-        .story-image {
+        .why-image {
             border-radius: 15px;
             overflow: hidden;
             position: relative;
@@ -336,7 +336,7 @@
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
         }
 
-        .story-image::before {
+        .why-image::before {
             content: '';
             position: absolute;
             top: 0;
@@ -346,270 +346,51 @@
             background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), transparent);
         }
 
-        .story-text h2 {
-            font-size: 2.2rem;
-            margin-bottom: 20px;
-            color: var(--darker);
+        .why-points {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
         }
 
-        .story-text p {
-            color: var(--gray);
-            margin-bottom: 20px;
-            line-height: 1.7;
-        }
-
-        /* Mission Vision Section */
-        .mission-vision {
-            background-color: var(--light-gray);
-        }
-
-        .mv-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-        }
-
-        .mv-card {
-            background: var(--light);
-            border-radius: 15px;
-            padding: 40px;
+        .why-point {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 20px;
+            background: var(--light-gray);
+            border-radius: 10px;
             transition: var(--transition);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
-        .mv-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 212, 255, 0.1);
+        .why-point:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 25px rgba(0, 212, 255, 0.1);
         }
 
-        .mv-icon {
-            width: 80px;
-            height: 80px;
+        .point-icon {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-top: 5px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
-            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            background: rgba(0, 212, 255, 0.1);
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 25px;
-            font-size: 2rem;
-            color: #121212;
+            flex-shrink: 0;
         }
 
-        .mv-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: var(--darker);
-        }
-
-        .mv-card p {
-            color: var(--gray);
-            line-height: 1.6;
-        }
-
-        /* Values Section */
-        .values-section {
-            background-color: var(--light);
-        }
-
-        .values-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .value-card {
-            background: var(--light-gray);
-            border-radius: 15px;
-            padding: 30px;
-            transition: var(--transition);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            text-align: center;
-        }
-
-        .value-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 212, 255, 0.1);
-        }
-
-        .value-icon {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 20px;
-        }
-
-        .value-card h3 {
+        .point-content h4 {
             font-size: 1.3rem;
-            margin-bottom: 15px;
+            margin-bottom: 8px;
             color: var(--darker);
         }
 
-        .value-card p {
-            color: var(--gray);
-            line-height: 1.6;
-        }
-
-        /* Timeline Section */
-        .timeline-section {
-            background-color: var(--light-gray);
-        }
-
-        .timeline {
-            position: relative;
-            max-width: 800px;
-            margin: 50px auto;
-        }
-
-        .timeline::after {
-            content: '';
-            position: absolute;
-            width: 4px;
-            background: var(--primary);
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            margin-left: -2px;
-        }
-
-        .timeline-item {
-            padding: 10px 40px;
-            position: relative;
-            width: 50%;
-            box-sizing: border-box;
-        }
-
-        .timeline-item:nth-child(odd) {
-            left: 0;
-        }
-
-        .timeline-item:nth-child(even) {
-            left: 50%;
-        }
-
-        .timeline-content {
-            padding: 20px;
-            background: var(--light);
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            position: relative;
-        }
-
-        .timeline-item::after {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background: var(--primary);
-            border-radius: 50%;
-            top: 20px;
-            z-index: 1;
-        }
-
-        .timeline-item:nth-child(odd)::after {
-            right: -10px;
-        }
-
-        .timeline-item:nth-child(even)::after {
-            left: -10px;
-        }
-
-        .timeline-year {
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 5px;
-        }
-
-        .timeline-content h3 {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-            color: var(--darker);
-        }
-
-        .timeline-content p {
+        .point-content p {
             color: var(--gray);
             font-size: 0.95rem;
-        }
-
-        /* Team Section */
-        .team-section {
-            background-color: var(--light);
-        }
-
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-
-        .team-member {
-            background: var(--light-gray);
-            border-radius: 15px;
-            overflow: hidden;
-            transition: var(--transition);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            text-align: center;
-        }
-
-        .team-member:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 212, 255, 0.1);
-        }
-
-        .member-img {
-            height: 250px;
-            background-size: cover;
-            background-position: center;
-        }
-
-        .member-info {
-            padding: 25px;
-        }
-
-        .member-info h3 {
-            font-size: 1.3rem;
-            margin-bottom: 5px;
-            color: var(--darker);
-        }
-
-        .member-info p {
-            color: var(--primary);
-            margin-bottom: 10px;
-            font-size: 0.9rem;
-        }
-
-        .member-info .bio {
-            color: var(--gray);
-            font-size: 0.9rem;
-            margin-bottom: 15px;
-            line-height: 1.5;
-        }
-
-        .member-social {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 15px;
-        }
-
-        .social-link {
-            width: 35px;
-            height: 35px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.05);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: var(--transition);
-            color: var(--gray);
-        }
-
-        .social-link:hover {
-            background: var(--primary);
-            color: #121212;
-            transform: translateY(-3px);
         }
 
         /* Stats Section */
@@ -654,6 +435,231 @@
         .stat-text {
             color: var(--gray);
             font-size: 1rem;
+        }
+
+        /* Process Section */
+        .process-section {
+            background-color: var(--light);
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .process-step {
+            text-align: center;
+            padding: 30px;
+            background: var(--light-gray);
+            border-radius: 15px;
+            transition: var(--transition);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+        }
+
+        .process-step:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 212, 255, 0.1);
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #121212;
+        }
+
+        .process-step h3 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: var(--darker);
+        }
+
+        .process-step p {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        /* Team Section */
+        .team-section {
+            background-color: var(--light-gray);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .team-member {
+            background: var(--light);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: var(--transition);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            text-align: center;
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 212, 255, 0.1);
+        }
+
+        .member-img {
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .member-info {
+            padding: 25px;
+        }
+
+        .member-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+            color: var(--darker);
+        }
+
+        .member-info p {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+        }
+
+        .member-info .bio {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .member-social {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .social-link {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            color: var(--gray);
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+            color: #121212;
+            transform: translateY(-3px);
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            background-color: var(--light);
+        }
+
+        .testimonials-slider {
+            position: relative;
+            overflow: hidden;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .testimonials-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .testimonial-card {
+            min-width: 100%;
+            background: var(--light-gray);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 0 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .testimonial-content {
+            margin-bottom: 20px;
+        }
+
+        .testimonial-content p {
+            font-style: italic;
+            color: var(--gray);
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .author-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .author-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .author-info h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            color: var(--darker);
+        }
+
+        .author-info p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .stars {
+            color: #ffc107;
+            margin-bottom: 5px;
+        }
+
+        .slider-nav {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 30px;
+        }
+
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--light-gray);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .slider-dot.active {
+            background: var(--primary);
         }
 
         /* CTA Section */
@@ -831,39 +837,12 @@
                 font-size: 2.5rem;
             }
             
-            .story-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .mv-grid {
+            .why-content {
                 grid-template-columns: 1fr;
             }
             
             .footer-content {
                 grid-template-columns: 1fr 1fr;
-            }
-            
-            .timeline::after {
-                left: 31px;
-            }
-            
-            .timeline-item {
-                width: 100%;
-                padding-left: 70px;
-                padding-right: 25px;
-            }
-            
-            .timeline-item:nth-child(even) {
-                left: 0;
-            }
-            
-            .timeline-item::after {
-                left: 20px;
-            }
-            
-            .timeline-item:nth-child(odd)::after, 
-            .timeline-item:nth-child(even)::after {
-                left: 20px;
             }
         }
 
@@ -921,7 +900,7 @@
                 padding: 70px 0;
             }
             
-            .mv-card, .value-card, .stat-card, .team-member {
+            .why-point, .stat-card, .process-step, .team-member {
                 padding: 20px;
             }
             
@@ -968,9 +947,8 @@
             </nav>
         </div>
     </header>
-
-    <!-- About Hero Section -->
-    <section class="about-hero">
+    <!-- Why Us Hero Section -->
+    <section class="why-us-hero">
         <div class="hero-shapes">
             <div class="shape shape-1"></div>
             <div class="shape shape-2"></div>
@@ -978,241 +956,234 @@
         </div>
         <div class="container">
             <div class="hero-content">
-                <h1 class="fade-in">About TechGuru India</h1>
-                <p class="fade-in">We are a team of passionate developers, designers, and digital strategists dedicated to creating exceptional web experiences that drive business growth.</p>
+                <h1 class="fade-in">Why Choose TechGuru India?</h1>
+                <p class="fade-in">Discover what sets us apart from other web development companies and why we're the perfect partner for your digital success.</p>
                 <div class="hero-btns">
-                    <a href="#our-story" class="btn btn-primary fade-in">Our Story</a>
-                    <a href="#our-team" class="btn btn-secondary fade-in">Meet Our Team</a>
+                    <a href="#why-choose-us" class="btn btn-primary fade-in">Learn More</a>
+                    <a href="contact.html" class="btn btn-secondary fade-in">Get Started</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About Story Section -->
-    <section class="section about-story" id="our-story">
+    <!-- Why Choose Us Section -->
+    <section class="section why-choose-us" id="why-choose-us">
         <div class="container">
             <div class="section-title">
-                <h2>Our Story</h2>
-                <p>From humble beginnings to becoming a leading web development agency in India</p>
+                <h2>What Makes Us Different</h2>
+                <p>We go beyond just building websites - we create digital experiences that drive results.</p>
             </div>
-            <div class="story-content">
-                <div class="story-image slide-in-left"></div>
-                <div class="story-text slide-in-right">
-                    <h2>Building Digital Excellence Since 2016</h2>
-                    <p>TechGuru India was founded in 2016 with a simple yet powerful vision: to make professional web development accessible to businesses of all sizes. What started as a small team of three passionate developers has grown into a full-service digital agency serving clients across India and beyond.</p>
-                    <p>Our journey began when our founder, Rajesh Kumar, recognized the growing need for affordable, high-quality web solutions among small and medium businesses. He assembled a team of like-minded professionals who shared his commitment to excellence and client satisfaction.</p>
-                    <p>Over the years, we've evolved from a basic web development shop to a comprehensive digital solutions provider. We've embraced new technologies, expanded our service offerings, and built lasting relationships with hundreds of satisfied clients.</p>
-                    <p>Today, we're proud to be one of the most trusted web development companies in India, known for our technical expertise, creative solutions, and unwavering commitment to client success.</p>
+            <div class="why-content">
+                <div class="why-image slide-in-left"></div>
+                <div class="why-points">
+                    <div class="why-point slide-in-right">
+                        <div class="point-icon">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <div class="point-content">
+                            <h4>Modern UI/UX Design</h4>
+                            <p>We create visually appealing and user-friendly interfaces that enhance user experience and drive engagement. Our designs are not just beautiful but also functional and intuitive.</p>
+                        </div>
+                    </div>
+                    <div class="why-point slide-in-right">
+                        <div class="point-icon">
+                            <i class="fas fa-cubes"></i>
+                        </div>
+                        <div class="point-content">
+                            <h4>Advanced Animations</h4>
+                            <p>Engage your audience with stunning 3D animations and interactive elements that make your website stand out from the competition.</p>
+                        </div>
+                    </div>
+                    <div class="why-point slide-in-right">
+                        <div class="point-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <div class="point-content">
+                            <h4>SEO & Marketing Integration</h4>
+                            <p>Our websites are optimized for search engines and integrated with marketing tools from day one, ensuring maximum visibility and conversions.</p>
+                        </div>
+                    </div>
+                    <div class="why-point slide-in-right">
+                        <div class="point-icon">
+                            <i class="fas fa-rupee-sign"></i>
+                        </div>
+                        <div class="point-content">
+                            <h4>Affordable Pricing</h4>
+                            <p>Get premium quality websites at competitive prices with flexible payment options that fit your budget without compromising on quality.</p>
+                        </div>
+                    </div>
+                    <div class="why-point slide-in-right">
+                        <div class="point-icon">
+                            <i class="fas fa-mobile-screen"></i>
+                        </div>
+                        <div class="point-content">
+                            <h4>100% Responsive Design</h4>
+                            <p>All our websites are fully responsive and work seamlessly across all devices - from desktop to mobile phones and tablets.</p>
+                        </div>
+                    </div>
+                    <div class="why-point slide-in-right">
+                        <div class="point-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <div class="point-content">
+                            <h4>24/7 Support</h4>
+                            <p>Round-the-clock customer support to assist you with any issues or queries, ensuring your website runs smoothly at all times.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Mission Vision Section -->
-    <section class="section mission-vision">
+    <!-- Stats Section -->
+    <section class="section stats-section">
         <div class="container">
             <div class="section-title">
-                <h2>Our Mission & Vision</h2>
-                <p>Driving innovation and excellence in everything we do</p>
+                <h2>Our Track Record</h2>
+                <p>Numbers that speak for our expertise and commitment to excellence.</p>
             </div>
-            <div class="mv-grid">
-                <div class="mv-card fade-in">
-                    <div class="mv-icon">
-                        <i class="fas fa-rocket"></i>
+            <div class="stats-grid">
+                <div class="stat-card fade-in">
+                    <div class="stat-icon">
+                        <i class="fas fa-project-diagram"></i>
                     </div>
-                    <h3>Our Mission</h3>
-                    <p>To empower businesses with cutting-edge web solutions that drive growth, enhance user experience, and deliver measurable results. We believe in building long-term partnerships with our clients by providing reliable support, transparent communication, and solutions that grow with their business.</p>
+                    <div class="stat-number" data-target="250">0</div>
+                    <div class="stat-text">Projects Completed</div>
                 </div>
-                <div class="mv-card fade-in">
-                    <div class="mv-icon">
-                        <i class="fas fa-eye"></i>
+                <div class="stat-card fade-in">
+                    <div class="stat-icon">
+                        <i class="fas fa-smile"></i>
                     </div>
-                    <h3>Our Vision</h3>
-                    <p>To be the leading web development agency in India, recognized for our innovation, quality, and client-centric approach. We aim to set new standards in the industry by continuously evolving our skills, adopting emerging technologies, and delivering solutions that exceed expectations.</p>
+                    <div class="stat-number" data-target="98">0</div>
+                    <div class="stat-text">Client Satisfaction</div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Values Section -->
-    <section class="section values-section">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Values</h2>
-                <p>The principles that guide everything we do</p>
-            </div>
-            <div class="values-grid">
-                <div class="value-card fade-in">
-                    <div class="value-icon">
-                        <i class="fas fa-medal"></i>
+                <div class="stat-card fade-in">
+                    <div class="stat-icon">
+                        <i class="fas fa-calendar-alt"></i>
                     </div>
-                    <h3>Quality First</h3>
-                    <p>We never compromise on quality. Every project undergoes rigorous testing and quality assurance to ensure it meets the highest standards of excellence.</p>
+                    <div class="stat-number" data-target="7">0</div>
+                    <div class="stat-text">Years Experience</div>
                 </div>
-                <div class="value-card fade-in">
-                    <div class="value-icon">
-                        <i class="fas fa-lightbulb"></i>
-                    </div>
-                    <h3>Innovation</h3>
-                    <p>We stay ahead of the curve by embracing new technologies and creative approaches to solve complex business challenges.</p>
-                </div>
-                <div class="value-card fade-in">
-                    <div class="value-icon">
-                        <i class="fas fa-handshake"></i>
-                    </div>
-                    <h3>Client Partnership</h3>
-                    <p>We view our clients as partners and work collaboratively to understand their unique needs and deliver solutions that drive their success.</p>
-                </div>
-                <div class="value-card fade-in">
-                    <div class="value-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h3>Integrity</h3>
-                    <p>We believe in transparency, honesty, and ethical business practices. Our clients trust us because we deliver what we promise.</p>
-                </div>
-                <div class="value-card fade-in">
-                    <div class="value-icon">
+                <div class="stat-card fade-in">
+                    <div class="stat-icon">
                         <i class="fas fa-users"></i>
                     </div>
-                    <h3>Teamwork</h3>
-                    <p>Our collaborative approach brings together diverse expertise to deliver comprehensive solutions that exceed expectations.</p>
+                    <div class="stat-number" data-target="150">0</div>
+                    <div class="stat-text">Happy Clients</div>
                 </div>
-                <div class="value-card fade-in">
-                    <div class="value-icon">
-                        <i class="fas fa-chart-line"></i>
+                <div class="stat-card fade-in">
+                    <div class="stat-icon">
+                        <i class="fas fa-clock"></i>
                     </div>
-                    <h3>Growth Mindset</h3>
-                    <p>We continuously learn, adapt, and improve to stay at the forefront of web development trends and technologies.</p>
+                    <div class="stat-number" data-target="24">0</div>
+                    <div class="stat-text">Support Hours</div>
+                </div>
+                <div class="stat-card fade-in">
+                    <div class="stat-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="stat-number" data-target="15">0</div>
+                    <div class="stat-text">Awards Won</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Timeline Section -->
-    <section class="section timeline-section">
+    <!-- Process Section -->
+    <section class="section process-section">
         <div class="container">
             <div class="section-title">
-                <h2>Our Journey</h2>
-                <p>Milestones in our growth and development</p>
+                <h2>Our Client-Centric Approach</h2>
+                <p>We follow a proven process that ensures your project's success from start to finish.</p>
             </div>
-            <div class="timeline">
-                <div class="timeline-item fade-in">
-                    <div class="timeline-content">
-                        <div class="timeline-year">2016</div>
-                        <h3>Foundation</h3>
-                        <p>TechGuru India was founded with a vision to provide affordable, high-quality web development services to small and medium businesses in India.</p>
-                    </div>
+            <div class="process-steps">
+                <div class="process-step fade-in">
+                    <div class="step-number">1</div>
+                    <h3>Deep Understanding</h3>
+                    <p>We begin by thoroughly understanding your business, goals, target audience, and unique requirements.</p>
                 </div>
-                <div class="timeline-item fade-in">
-                    <div class="timeline-content">
-                        <div class="timeline-year">2017</div>
-                        <h3>First 50 Clients</h3>
-                        <p>We successfully delivered websites for our first 50 clients, establishing our reputation for reliability and quality work.</p>
-                    </div>
+                <div class="process-step fade-in">
+                    <div class="step-number">2</div>
+                    <h3>Strategic Planning</h3>
+                    <p>We create a comprehensive strategy and roadmap tailored to your specific business objectives.</p>
                 </div>
-                <div class="timeline-item fade-in">
-                    <div class="timeline-content">
-                        <div class="timeline-year">2018</div>
-                        <h3>Team Expansion</h3>
-                        <p>We expanded our team to include specialized developers, UI/UX designers, and digital marketing experts.</p>
-                    </div>
+                <div class="process-step fade-in">
+                    <div class="step-number">3</div>
+                    <h3>Collaborative Development</h3>
+                    <p>We work closely with you throughout the development process, ensuring transparency and alignment.</p>
                 </div>
-                <div class="timeline-item fade-in">
-                    <div class="timeline-content">
-                        <div class="timeline-year">2019</div>
-                        <h3>Framework Specialization</h3>
-                        <p>We developed expertise in multiple frameworks including React, Angular, Vue.js, and Node.js to offer more diverse solutions.</p>
-                    </div>
+                <div class="process-step fade-in">
+                    <div class="step-number">4</div>
+                    <h3>Quality Assurance</h3>
+                    <p>We conduct rigorous testing to ensure your website meets the highest standards of quality and performance.</p>
                 </div>
-                <div class="timeline-item fade-in">
-                    <div class="timeline-content">
-                        <div class="timeline-year">2020</div>
-                        <h3>Pandemic Adaptation</h3>
-                        <p>During the COVID-19 pandemic, we helped businesses transition online with e-commerce solutions and digital platforms.</p>
-                    </div>
+                <div class="process-step fade-in">
+                    <div class="step-number">5</div>
+                    <h3>Timely Delivery</h3>
+                    <p>We respect deadlines and deliver projects on time without compromising on quality.</p>
                 </div>
-                <div class="timeline-item fade-in">
-                    <div class="timeline-content">
-                        <div class="timeline-year">2021</div>
-                        <h3>200+ Projects</h3>
-                        <p>We crossed the milestone of 200 completed projects with a 98% client satisfaction rate.</p>
-                    </div>
-                </div>
-                <div class="timeline-item fade-in">
-                    <div class="timeline-content">
-                        <div class="timeline-year">2022</div>
-                        <h3>Service Expansion</h3>
-                        <p>We expanded our services to include mobile app development, digital marketing, and comprehensive SEO solutions.</p>
-                    </div>
-                </div>
-                <div class="timeline-item fade-in">
-                    <div class="timeline-content">
-                        <div class="timeline-year">2023</div>
-                        <h3>Current</h3>
-                        <p>Today, we continue to innovate and expand, serving clients across various industries with cutting-edge web solutions and maintaining our position as a trusted technology partner.</p>
-                    </div>
+                <div class="process-step fade-in">
+                    <div class="step-number">6</div>
+                    <h3>Ongoing Support</h3>
+                    <p>We provide continuous support and maintenance to keep your website running smoothly.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Team Section -->
-    <!-- <section class="section team-section" id="our-team">
+   
+    <!-- <section class="section team-section">
         <div class="container">
             <div class="section-title">
-                <h2>Meet Our Team</h2>
-                <p>The talented individuals behind our success</p>
+                <h2>Meet Our Expert Team</h2>
+                <p>Our talented professionals are the driving force behind our success and your satisfaction.</p>
             </div>
             <div class="team-grid">
                 <div class="team-member fade-in">
-                    <div class="member-img" style="background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80')"></div>
+                    <div class="member-img" style="background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80');"></div>
                     <div class="member-info">
                         <h3>Rajesh Kumar</h3>
                         <p>Founder & CEO</p>
-                        <div class="bio">With over 10 years of experience in web development, Rajesh leads our team with vision and technical expertise.</div>
+                        <p class="bio">With over 10 years of experience in web development, Rajesh leads our team with vision and technical expertise.</p>
                         <div class="member-social">
                             <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
                             <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                            <a href="#" class="social-link"><i class="fab fa-github"></i></a>
                         </div>
                     </div>
                 </div>
                 <div class="team-member fade-in">
-                    <div class="member-img" style="background-image: url('https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80')"></div>
+                    <div class="member-img" style="background-image: url('https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80');"></div>
                     <div class="member-info">
                         <h3>Priya Sharma</h3>
-                        <p>Lead UI/UX Designer</p>
-                        <div class="bio">Priya creates intuitive and beautiful user interfaces that enhance user experience and drive engagement.</div>
+                        <p>Creative Director</p>
+                        <p class="bio">Priya brings 8 years of UI/UX design experience, ensuring our projects are both beautiful and user-friendly.</p>
                         <div class="member-social">
                             <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
                             <a href="#" class="social-link"><i class="fab fa-dribbble"></i></a>
-                            <a href="#" class="social-link"><i class="fab fa-behance"></i></a>
                         </div>
                     </div>
                 </div>
                 <div class="team-member fade-in">
-                    <div class="member-img" style="background-image: url('https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80')"></div>
+                    <div class="member-img" style="background-image: url('https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');"></div>
                     <div class="member-info">
                         <h3>Amit Patel</h3>
-                        <p>Senior Full-Stack Developer</p>
-                        <div class="bio">Amit specializes in React and Node.js, building scalable and efficient web applications for our clients.</div>
+                        <p>Lead Developer</p>
+                        <p class="bio">Amit specializes in React and Node.js development, with 7 years of experience building scalable web applications.</p>
                         <div class="member-social">
                             <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
                             <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-                            <a href="#" class="social-link"><i class="fab fa-stack-overflow"></i></a>
                         </div>
                     </div>
                 </div>
                 <div class="team-member fade-in">
-                    <div class="member-img" style="background-image: url('https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=761&q=80')"></div>
+                    <div class="member-img" style="background-image: url('https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1961&q=80');"></div>
                     <div class="member-info">
-                        <h3>Neha Gupta</h3>
-                        <p>Digital Marketing Manager</p>
-                        <div class="bio">Neha develops comprehensive digital marketing strategies that help our clients grow their online presence.</div>
+                        <h3>Neha Singh</h3>
+                        <p>Project Manager</p>
+                        <p class="bio">Neha ensures all projects are delivered on time and exceed client expectations with her excellent coordination skills.</p>
                         <div class="member-social">
                             <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
                             <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
                         </div>
                     </div>
                 </div>
@@ -1220,55 +1191,97 @@
         </div>
     </section> -->
 
-    <!-- Stats Section -->
-    <section class="section stats-section">
+    <!-- Testimonials Section -->
+    <section class="section testimonials-section">
         <div class="container">
             <div class="section-title">
-                <h2>Our Achievements</h2>
-                <p>Numbers that speak about our success and growth</p>
+                <h2>What Our Clients Say</h2>
+                <p>Hear from businesses that have transformed their online presence with our help.</p>
             </div>
-            <div class="stats-grid">
-                <div class="stat-card fade-in">
-                    <div class="stat-icon">
-                        <i class="fas fa-project-diagram"></i>
+            <div class="testimonials-slider">
+                <div class="testimonials-track">
+                    <div class="testimonial-card fade-in">
+                        <div class="testimonial-content">
+                            <p>"TechGuru India transformed our online presence completely. Our new website not only looks amazing but has significantly increased our lead generation. The team was professional, responsive, and delivered beyond our expectations."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-img">
+                                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client">
+                            </div>
+                            <div class="author-info">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <h4>Rajesh Kumar</h4>
+                                <p>CEO, TechSolutions</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="stat-number">350+</div>
-                    <div class="stat-text">Projects Completed</div>
+                    <div class="testimonial-card fade-in">
+                        <div class="testimonial-content">
+                            <p>"Working with TechGuru India was a game-changer for our e-commerce business. They created a stunning, user-friendly online store that has boosted our sales by 40%. Their attention to detail and post-launch support has been exceptional."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-img">
+                                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Client">
+                            </div>
+                            <div class="author-info">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <h4>Priya Sharma</h4>
+                                <p>Founder, FashionHub</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card fade-in">
+                        <div class="testimonial-content">
+                            <p>"As a startup, we needed a website that could grow with our business. TechGuru India delivered exactly that - a scalable, modern website with all the features we needed. Their team was incredibly patient with our numerous requests and changes."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-img">
+                                <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="Client">
+                            </div>
+                            <div class="author-info">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <h4>Amit Patel</h4>
+                                <p>Co-founder, StartUpGrid</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="stat-card fade-in">
-                    <div class="stat-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <div class="stat-number">280+</div>
-                    <div class="stat-text">Happy Clients</div>
-                </div>
-                <div class="stat-card fade-in">
-                    <div class="stat-icon">
-                        <i class="fas fa-award"></i>
-                    </div>
-                    <div class="stat-number">98%</div>
-                    <div class="stat-text">Client Satisfaction</div>
-                </div>
-                <div class="stat-card fade-in">
-                    <div class="stat-icon">
-                        <i class="fas fa-clock"></i>
-                    </div>
-                    <div class="stat-number">7+</div>
-                    <div class="stat-text">Years Experience</div>
+                <div class="slider-nav">
+                    <div class="slider-dot active"></div>
+                    <div class="slider-dot"></div>
+                    <div class="slider-dot"></div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- CTA Section -->
-    <section class="section cta-section">
+    <section class="cta-section">
         <div class="container">
             <div class="section-title">
-                <h2>Ready to Start Your Project?</h2>
-                <p>Let's work together to bring your ideas to life with cutting-edge web solutions</p>
+                <h2>Ready to Experience the Difference?</h2>
+                <p>Join hundreds of satisfied clients who have transformed their businesses with our web development expertise.</p>
             </div>
             <div class="cta-btns">
-                <a href="contact.html" class="btn cta-btn-primary">Get In Touch</a>
+                <a href="contact.html" class="btn cta-btn-primary">Start Your Project</a>
                 <a href="portfolio.html" class="btn cta-btn-secondary">View Our Work</a>
             </div>
         </div>
@@ -1280,22 +1293,22 @@
             <div class="footer-content">
                 <div class="footer-col footer-about">
                     <h3>TechGuru India</h3>
-                    <p>We are a leading web development company in India, specializing in creating innovative digital solutions that drive business growth and success.</p>
+                    <p>We are a professional web development company dedicated to creating stunning, functional websites that help businesses grow and succeed in the digital world.</p>
                     <div class="social-links">
                         <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
                         <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
                     </div>
                 </div>
                 <div class="footer-col">
-                    <h3>Quick Links</h3>
+                    <h3>Services</h3>
                     <ul class="footer-links">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="services.html">Services</a></li>
-                        <li><a href="portfolio.html">Portfolio</a></li>
-                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="services.html">Business Websites</a></li>
+                        <li><a href="services.html">E-commerce Solutions</a></li>
+                        <li><a href="services.html">Portfolio Websites</a></li>
+                        <li><a href="services.html">Web Applications</a></li>
+                        <li><a href="services.html">SEO Optimization</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -1309,11 +1322,13 @@
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h3>Contact Us</h3>
+                    <h3>Support</h3>
                     <ul class="footer-links">
-                        <li><i class="fas fa-map-marker-alt"></i> 123 Tech Park, Bangalore, India</li>
-                        <li><i class="fas fa-phone"></i> +91 98765 43210</li>
-                        <li><i class="fas fa-envelope"></i> info@techguruindia.com</li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Sitemap</a></li>
                     </ul>
                 </div>
             </div>
@@ -1324,16 +1339,8 @@
     </footer>
 
     <script>
-        // Mobile Menu Toggle
-        const mobileMenu = document.querySelector('.mobile-menu');
-        const navLinks = document.querySelector('.nav-links');
-
-        mobileMenu.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-
-        // Header Scroll Effect
-        window.addEventListener('scroll', () => {
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
             const header = document.getElementById('header');
             if (window.scrollY > 100) {
                 header.classList.add('scrolled');
@@ -1342,23 +1349,107 @@
             }
         });
 
-        // Scroll Animation
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+        // Testimonials slider
+        const track = document.querySelector('.testimonials-track');
+        const dots = document.querySelectorAll('.slider-dot');
+        let currentSlide = 0;
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
+        function updateSlider() {
+            track.style.transform = `translateX(-${currentSlide * 100}%)`;
+            
+            dots.forEach((dot, index) => {
+                if (index === currentSlide) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
                 }
             });
-        }, observerOptions);
+        }
 
-        // Observe all elements with animation classes
-        document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in').forEach(el => {
-            observer.observe(el);
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                currentSlide = index;
+                updateSlider();
+            });
+        });
+
+        // Auto slide
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % dots.length;
+            updateSlider();
+        }, 5000);
+
+        // Number counting animation
+        function animateNumbers() {
+            const counters = document.querySelectorAll('.stat-number');
+            const speed = 200; // The lower the slower
+            
+            counters.forEach(counter => {
+                const updateCount = () => {
+                    const target = +counter.getAttribute('data-target');
+                    const count = +counter.innerText;
+                    const increment = target / speed;
+                    
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count + increment);
+                        setTimeout(updateCount, 10);
+                    } else {
+                        counter.innerText = target;
+                    }
+                };
+                
+                updateCount();
+            });
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        });
+
+        // Scroll animation
+        function checkScroll() {
+            const elements = document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in');
+            
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+
+        // Initialize animations when page loads
+        window.addEventListener('load', function() {
+            // Start number animation
+            setTimeout(animateNumbers, 500);
+            
+            // Check scroll position for animations
+            checkScroll();
+            
+            // Add scroll event listener
+            window.addEventListener('scroll', checkScroll);
         });
     </script>
 </body>
