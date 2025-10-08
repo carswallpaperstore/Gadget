@@ -1652,7 +1652,123 @@
         </div>
     </section>
 
-   
+    <!-- contact Section -->
+    <section class="section contact" id="contact-form">
+        <div class="container">
+            <div class="section-title">
+                <h2>contact Us</h2>
+                <p>Have a project in mind? Get in touch with us and let's discuss how we can help bring your ideas to life.</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-form fade-in">
+                    <form id="contactForm" action="submit_form.php" method="POST">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Full Name *</label>
+                                <input type="text" id="name" name="name" class="form-control" placeholder="Enter your full name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email address" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" class="form-control" placeholder="Enter your phone number">
+                            </div>
+                            <div class="form-group">
+                                <label for="company">Company Name</label>
+                                <input type="text" id="company" name="company" class="form-control" placeholder="Enter your company name">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Service Interested In *</label>
+                            <select id="service" name="service" class="form-control" required>
+                                <option value="">Select a service</option>
+                                <option value="business-website">Business Website</option>
+                                <option value="ecommerce">E-commerce Website</option>
+                                <option value="portfolio">Portfolio Website</option>
+                                <option value="web-app">Custom Web Application</option>
+                                <option value="seo">SEO Optimization</option>
+                                <option value="maintenance">Website Maintenance</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="budget">Project Budget (₹)</label>
+                            <select id="budget" name="budget" class="form-control">
+                                <option value="">Select budget range</option>
+                                <option value="10k-25k">₹10,000 - ₹25,000</option>
+                                <option value="25k-50k">₹25,000 - ₹50,000</option>
+                                <option value="50k-1l">₹50,000 - ₹1,00,000</option>
+                                <option value="1l-2l">₹1,00,000 - ₹2,00,000</option>
+                                <option value="2l+">₹2,00,000+</option>
+                                <option value="not-sure">Not Sure</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Project Details *</label>
+                            <textarea id="message" name="message" class="form-control" placeholder="Tell us about your project requirements, goals, and timeline..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+                <div class="contact-info" id="contact-info">
+                    <div class="contact-item fade-in">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Email Us</h4>
+                            <p><a href="mailto:info@techguruindia.com">techguruindia321@gmail.com</a></p>        
+                        </div>
+                    </div>
+                    <!-- <div class="contact-item fade-in">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Call Us</h4>
+                            <p><a href="tel:+919876543210">+91 98765 43210</a></p>
+                            <p><a href="tel:+919876543211">+91 98765 43211</a></p>
+                        </div>
+                    </div> -->
+                    <div class="contact-item fade-in">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Visit Our Office</h4>
+                            <p>Tech Park, IT Road</p>
+                            <p>Aurangabad, Maharashtra 431001</p>
+                        </div>
+                    </div>
+                    <div class="contact-item fade-in">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Business Hours</h4>
+                            <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
+                            <p>Saturday: 10:00 AM - 4:00 PM</p>
+                            <p>Sunday: Closed</p>
+                        </div>
+                    </div>
+                    <!-- <div class="contact-item fade-in">
+                        <div class="contact-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>24/7 Support</h4>
+                            <p>Emergency technical support available</p>
+                            <p><a href="tel:+919876543212">+91 98765 43212</a></p>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer>
